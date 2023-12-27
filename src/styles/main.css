@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    color: white;
+    font-family: 'Vina-Sans', sans-serif;
+    z-index: 1;
+}
+
+body, #___gatsby, #gatsby-focus-wrapper { 
+    overscroll-behaviour-y: none;
+    height: 100%;
+    margin: 0;
+    @apply bg-neutral-800;
+}
+
+h1 {
+    @apply text-5xl;
+}
+
+/* #test1 {
+    z-index: 0 !important;
+    transform: translateX(70px);
+} */
