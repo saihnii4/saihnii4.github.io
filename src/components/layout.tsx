@@ -20,32 +20,35 @@ const variants = {
   },
 };
 
-const Nav: React.FC = (props) => {
+const Nav: React.FC = () => {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     console.log("Page scroll: ", latest);
   });
   return (
-    <div className="flex flex-row text-3xl items-center justify-between sticky top-8 p-4 bg-slate-700">
+    <div className="flex flex-row text-xl xl:text-2xl 2xl:text-3xl items-center justify-between sticky top-8 p-4 bg-slate-700">
       <div className="flex flex-row gap-4 items-center">
         <img
           src="https://avatars.githubusercontent.com/u/81787757?v=4"
+          className="xl:w-24 xl:h-24 w-16 h-16"
           width="96"
           height="96"
         />
         <hr />
         <motion.div
-          className="flex flex-row text-5xl"
+          className="flex flex-row text-3xl xl:text-4xl 2xl:text-5xl"
           animate="animate"
-          variants={variants}
+          // @ts-ignore
+          variants={variants} 
         >
           {"saihnii4".split("").map((letter) => {
+            // @ts-ignore
             return <motion.span variants={variants}>{letter}</motion.span>;
           })}
         </motion.div>
       </div>
-      <div className="flex flex-row">
+      <div className="flex flex-row !font-mono">
         <a className="group transition duration-75 select-none cursor-pointer">
           <span className="group-hover:text-red-500 transition-all">about</span>
           <hr className="max-w-0 group-hover:max-w-full transition-all"></hr>
