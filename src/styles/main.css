@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html,
+#___gatsby,
+#___gatsby > * {
+  margin: 0;
+  font-family: "Fira Code";
+  height: 100%;
+}
