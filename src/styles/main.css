@@ -10,3 +10,11 @@ html,
   font-family: "Fira Code";
   height: 100%;
 }
+
+ul,
+ol,
+li {
+  /* todo: what*/
+  list-style-position: inside !important;
+  list-style: revert;
+}

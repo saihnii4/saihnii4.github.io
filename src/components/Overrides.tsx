@@ -1,16 +1,11 @@
 // TODO: use react context
 
 import * as React from "react"
+import { Highlight, themes } from "prism-react-renderer"
+import { ThemeContext } from "../context/theme"
 
 export const _get_colorscheme = () => {
-  const stored = localStorage.getItem("colorscheme")
-  if (stored === null) localStorage.setItem("colorscheme", "nord")
-  return stored ?? "nord"
-}
-
-const _prepare_base_classes = () => {
-  const colorscheme = _get_colorscheme()
-  return `text-${colorscheme}`
+  return React.useContext(ThemeContext)
 }
 
 export const Div: React.FC<
@@ -22,21 +17,27 @@ export const Div: React.FC<
 )
 
 export const H1: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <h1
-    className={`text-4xl font-bold text-${_get_colorscheme()}-text-header`}
-  >
+  <h1 className={`text-4xl font-bold text-${_get_colorscheme()}-text-header`}>
     {children}
   </h1>
 )
 
 export const H2: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <h2 className={`text-${_get_colorscheme()}-text-header`}>{children}</h2>
+  <h2
+    className={`text-${_get_colorscheme()}-text-header text-3xl font-semibold`}
+  >
+    {children}
+  </h2>
 )
 export const H3: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <h3 className={`text-${_get_colorscheme()}-text-header`}>{children}</h3>
+  <h3 className={`text-${_get_colorscheme()}-text-header text-2xl font-medium`}>
+    {children}
+  </h3>
 )
 export const H4: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <h4 className={`text-${_get_colorscheme()}-text-header`}>{children}</h4>
+  <h4 className={`text-${_get_colorscheme()}-text-header text-xl font-medium`}>
+    {children}
+  </h4>
 )
 export const Span: React.FC<
   React.PropsWithChildren & { className?: string }
@@ -45,3 +46,26 @@ export const Span: React.FC<
     {children}
   </span>
 )
+
+const SyntaxHighlighter: React.FC<any> = ({ children }) => {
+  const code = children.props?.children
+  const language = children.props?.className?.replace("language-", "").trim()
+
+  return (
+    <Highlight code={code} language={language}>
+      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+        <pre className={className} style={{ ...style }}>
+          {tokens.slice(0, -1).map((line, i) => (
+            <div {...getLineProps({ line, key: i })}>
+              {line.map((token, key) => (
+                <span {...getTokenProps({ token, key })} />
+              ))}
+            </div>
+          ))}
+        </pre>
+      )}
+    </Highlight>
+  )
+}
+
+export default SyntaxHighlighter
