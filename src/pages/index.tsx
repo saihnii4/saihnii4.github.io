@@ -11,6 +11,7 @@ const Index = props => {
           src="https://avatars.githubusercontent.com/u/81787757?v=4"
           className="object-contain h-128 w-128"
         />
+        <span>saihnii4</span>
       </Div>
       <Div
         className={`basis-1/2 lg:basis-2/3 w-2/3 bg-${_get_colorscheme()}-fg p-4 h-auto flex flex-col`}
