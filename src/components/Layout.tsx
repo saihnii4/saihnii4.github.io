@@ -11,6 +11,7 @@ import SyntaxHighlighter, {
 import Nav from "./Nav"
 import { MDXProvider } from "@mdx-js/react"
 import { ThemeContext } from "../context/theme"
+import { graphql, useStaticQuery } from "gatsby"
 
 const componentList = {
   h1: H1,
@@ -22,7 +23,11 @@ const componentList = {
   pre: SyntaxHighlighter,
 }
 
-const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
+const Layout: React.FC<React.PropsWithChildren | any> = ({
+  children,
+  pageContext,
+  post
+}) => {
   const [theme, setTheme] = React.useState("nord")
 
   React.useEffect(() => {
@@ -33,7 +38,7 @@ const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={theme}>
-      <Div className={`bg-${theme}-bg w-full h-auto`}>
+      <Div className={`bg-${theme}-bg w-full ${post ? 'h-auto' : 'h-full'}`}>
         <Div className="w-1/2 m-auto p-8 flex flex-col gap-8 h-full">
           <Nav />
           <MDXProvider components={componentList}>{children}</MDXProvider>

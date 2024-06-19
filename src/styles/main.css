@@ -18,3 +18,9 @@ li {
   list-style-position: inside !important;
   list-style: revert;
 }
+
+hr {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  border-color: #EBDBB2;
+}
