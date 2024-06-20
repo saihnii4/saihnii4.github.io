@@ -26,7 +26,7 @@ const componentList = {
 const Layout: React.FC<React.PropsWithChildren | any> = ({
   children,
   pageContext,
-  post
+  post,
 }) => {
   const [theme, setTheme] = React.useState("nord")
 
@@ -38,7 +38,7 @@ const Layout: React.FC<React.PropsWithChildren | any> = ({
 
   return (
     <ThemeContext.Provider value={theme}>
-      <Div className={`bg-${theme}-bg w-full ${post ? 'h-auto' : 'h-full'}`}>
+      <Div className={`bg-${theme}-bg w-full ${post ? "h-auto" : "h-full"}`}>
         <Div className="w-1/2 m-auto p-8 flex flex-col gap-8 h-full">
           <Nav />
           <MDXProvider components={componentList}>{children}</MDXProvider>

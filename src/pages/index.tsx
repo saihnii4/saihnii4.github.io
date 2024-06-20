@@ -24,7 +24,9 @@ const Index = props => {
           <Div className="">
             {posts.map(post => (
               <>
-                <Span className="font-semibold text-md overflow-hidden whitespace-nowrap text-ellipsis">{post.frontmatter.title}</Span>
+                <Span className="font-semibold text-md overflow-hidden whitespace-nowrap text-ellipsis">
+                  {post.frontmatter.title}
+                </Span>
                 <hr />
                 <Span className="block font-light text-xs">{post.excerpt}</Span>
               </>

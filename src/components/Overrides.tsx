@@ -23,9 +23,7 @@ export const H1: React.FC<React.PropsWithChildren> = ({ children }) => (
 )
 
 export const H2: React.FC<React.PropsWithChildren> = ({ children }) => (
-  <h2
-    className={`text-${_get_colorscheme()}-text-header text-3xl font-bold`}
-  >
+  <h2 className={`text-${_get_colorscheme()}-text-header text-3xl font-bold`}>
     {children}
   </h2>
 )
