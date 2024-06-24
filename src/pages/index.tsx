@@ -4,20 +4,57 @@ import { graphql } from "gatsby"
 
 const Index = props => {
   const posts: Array<any> = props.data.allMdx.nodes
+  // TODO: Incorporate github data
+  const projects = [
+    {
+      title: "oasis.sh",
+      description: "a social media platform for developers to communicate",
+    },
+    {
+      title: "last.fm tui",
+      description: "last.fm terminal user interface written in rust",
+    },
+    {
+      title: "NBSTEM",
+      description: "collection of NBSTEM's presentations and learning material",
+    },
+    {
+      title: "erdem.mn",
+      description: "testing",
+    },
+  ]
   return (
     <Div className="flex gap-8 h-full">
       <Div className="basis-1/2 lg:basis-1/3">
-        <img
-          src="https://avatars.githubusercontent.com/u/81787757?v=4"
-          className="object-contain h-128 w-128"
-        />
-        <span>saihnii4</span>
+        <Div className="flex gap-2 flex-col items-center">
+          <img
+            src="https://avatars.githubusercontent.com/u/81787757?v=4"
+            className="object-contain h-64 w-64 mb-2"
+          />
+          <span className="text-2xl font-semibold">saihnii4</span>
+          <span>
+            chembiophys enthusiast. part-time programmer, full-time debugger
+          </span>
+        </Div>
       </Div>
       <Div
         className={`basis-1/2 lg:basis-2/3 w-2/3 bg-${_get_colorscheme()}-fg p-4 h-auto flex flex-col`}
       >
         <Div className="basis-1/2 flex flex-col gap-2">
           <H2>projects</H2>
+          <Div className="grid grid-cols-2 gap-2">
+            {projects.map(project => (
+              <Div>
+                <Span className="font-semibold text-md overflow-hidden whitespace-nowrap text-ellipsis">
+                  {project.title}
+                </Span>
+                <hr />
+                <Span className="block font-light text-xs">
+                  {project.description}
+                </Span>
+              </Div>
+            ))}
+          </Div>
         </Div>
         <Div className="basis-1/2 flex flex-col gap-2">
           <H2>posts</H2>
