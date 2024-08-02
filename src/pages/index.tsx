@@ -8,7 +8,7 @@ const Index = props => {
   const projects = [
     {
       title: "oasis.sh",
-      description: "a social media platform for developers to communicate",
+      description: "a social media platform for developers",
     },
     {
       title: "last.fm tui",
@@ -16,12 +16,12 @@ const Index = props => {
     },
     {
       title: "NBSTEM",
-      description: "collection of NBSTEM's presentations and learning material",
+      description: "school club presentations and learning material",
     },
     {
-      title: "erdem.mn",
-      description: "testing",
-    },
+      title: "Snake Typer",
+      description: "Windows XP+ compatible typing game intended to run on minimal resources"
+    }
   ]
   return (
     <Div className="flex gap-8 h-full">

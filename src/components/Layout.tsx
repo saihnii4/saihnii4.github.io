@@ -12,14 +12,22 @@ import Nav from "./Nav"
 import { MDXProvider } from "@mdx-js/react"
 import { ThemeContext } from "../context/theme"
 import { graphql, useStaticQuery } from "gatsby"
+import TeX from "@matejmazur/react-katex"
+import "katex/dist/katex.css";
 
 const componentList = {
   h1: H1,
-  div: Div,
+  div: props => {
+    if (props.className.includes("math-display")) {
+      import("katex/dist/katex.css")
+      return <TeX block math={props.children} />
+    }
+    return <Div {...props} />
+  },
   h2: H2,
   h3: H3,
-  h4: H4,
-  span: Span,
+  h3: H4,
+  span: props => Span,
   pre: SyntaxHighlighter,
 }
 

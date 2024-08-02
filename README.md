@@ -4,6 +4,8 @@ a blog
 
 ## TODO
 
+[ ] latex support by fixing disfunctional remark plugin
+
 [ ] profile section
 
 [ ] disable overflow scrolling

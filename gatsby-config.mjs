@@ -1,7 +1,16 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
-module.exports = {
+
+import rehypeKatex from "rehype-katex"
+import remarkMath from "remark-math"
+import remarkHtmlKatex from "remark-html-katex"
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const test = {
   siteMetadata: {
     title: `saihnii4.github.io`,
     description: `a blog`,
@@ -54,8 +63,30 @@ module.exports = {
     //     path: `${__dirname}/src/posts`,
     //   },
     // },
-    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              // Add any KaTeX options from https://github.com/KaTeX/KaTeX/blob/master/docs/options.md here
+              strict: `ignore`
+            }
+          }
+        ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        remarkPlugins: [remarkMath, remarkHtmlKatex],
+        rehypePlugins: [rehypeKatex]
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
   ],
-}
+};
+
+export default test;
