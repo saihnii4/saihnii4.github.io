@@ -1,0 +1,46 @@
+---
+slug: /chem/carnot
+title: The Carnot Cycle
+---
+
+# Carnot Cycles
+
+**Carnot cycles** are the brainchild of French physicist Sadi Carnot who, in trying to improve the efficiency of heat engines, formalized the idea of heat flow and contributed to the creation of Thermodynamics.
+
+The Carnot Cycle is **the most efficient possible heat engine between two thermal reservoirs (the hot sink and the cold sink)**
+
+The Carnot Cycle consists of 4 stages:
+ - Isothermal Expansion (the plate makes thermal contact with the hot sink; heat flows into the system; temperature increases from Tc to Th as volume increases)
+- Adiabatic Expansion (the plate loses thermal contact with the hot sink; heat doesn't flow in or out; temperature stays constant as volume increases)
+- Isothermal Compression (the plate makes thermal contact with the cold sink; heat flows out of the system; temperature decreases from Th to Tc as volume decreases)
+- Adiabatic Compression (the plate loses thermal contact with the cold sink; heat doesn't flow in or out; temperature stays constant as volume decreases)
+
+**__Note that all the steps occur in a reversible fashion__**
+
+After the final stage (Adiabatic Compression), the cycle repeats—starting from Isothermal Expansion.
+
+An important feature of the Carnot Cycle is that the total change in entropy ($\Delta S = \Delta S_{surr} + \Delta S_{sys})$ is equal to zero:
+$$
+\Delta S = \oint \frac{dq}{T} = 0
+$$
+
+Let's prove this important facet:
+
+## The Change in Entropy of a Carnot Cycle
+
+First, let's consider the change in entropy for each stage in a Carnot Cycle:
+1.  Isothermal Expansion
+Here, the heat exchanged with the surroundings is $q_h = nRT_h\ln \left(\frac{V_B}{V_A}\right)$ and thus the change in entropy is $\Delta S_1 = \frac{q}{T}$
+
+2. Adiabatic Expansion
+Adiabatic processes do not exchange heat with the surroundings and thus the change in entropy for this step is 0. However, we can later use the adiabatic equation ($VT^{\gamma} = \text{const})$ to create a relation that we can use to solve for.
+$$
+V_C T_c^{\gamma} = V_B T_h^{\gamma}
+$$
+3. Isothermal Compression
+
+4. Adiabatic Compression
+We apply what we did for adiabatic expansion here:
+$$
+V_D T_c^{\gamma} = V_D T_h^{\gamma}
+$$
